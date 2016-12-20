@@ -1,0 +1,1 @@
+When the “Take the Geo Quiz” button is clicked, TableViewController will open - be sure to navigate back to the map view by clicking the “MAP” Navigation Controller. Used Online Source to try and get the navigation to work, but there was a bit of a glitch on start up.
