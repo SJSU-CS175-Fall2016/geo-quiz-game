@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="TJU-ur-CFG">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--MAP-->
+        <scene sceneID="zOl-Ws-ieE">
+            <objects>
+                <viewController id="jMc-Uq-B4T" customClass="MapController" customModule="GeoQuiz" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="lbQ-AW-LmT"/>
+                        <viewControllerLayoutGuide type="bottom" id="TV3-BJ-dyi"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Upy-eS-7k6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="f3o-fI-hTg">
+                                <connections>
+                                    <outlet property="delegate" destination="jMc-Uq-B4T" id="jo8-Je-bUy"/>
+                                </connections>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="f3o-fI-hTg" firstAttribute="top" secondItem="lbQ-AW-LmT" secondAttribute="bottom" constant="-20" id="77k-mJ-FNE"/>
+                            <constraint firstAttribute="trailing" secondItem="f3o-fI-hTg" secondAttribute="trailing" id="8os-B2-6Sy"/>
+                            <constraint firstItem="f3o-fI-hTg" firstAttribute="leading" secondItem="Upy-eS-7k6" secondAttribute="leading" id="CGu-7e-X4D"/>
+                            <constraint firstItem="f3o-fI-hTg" firstAttribute="bottom" secondItem="TV3-BJ-dyi" secondAttribute="top" id="TZ8-00-aMy"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="MAP" id="RZo-ln-xAz"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="mapView" destination="f3o-fI-hTg" id="1ai-O5-pdr"/>
+                        <segue destination="gvP-45-fDb" kind="show" identifier="quiz" id="eCZ-PX-rnG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4ZG-fc-w5B" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5663.1999999999998" y="106.59670164917542"/>
+        </scene>
+        <!--Table View Controller-->
+        <scene sceneID="U4e-Ps-Hif">
+            <objects>
+                <tableViewController id="gvP-45-fDb" customClass="TableViewController" customModule="GeoQuiz" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="ePr-hh-4fb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="sectionIndexBackgroundColor" red="0.29098588199999997" green="0.2063402966" blue="0.2003123352" alpha="0.54604559080000004" colorSpace="custom" customColorSpace="sRGB"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="FvC-f9-mT5">
+                                <rect key="frame" x="0.0" y="92" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FvC-f9-mT5" id="7cl-Om-TAg">
+                                    <frame key="frameInset" width="375" height="44"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="jMc-Uq-B4T" kind="show" identifier="backToMap" id="Pt5-Hl-SP7"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="gvP-45-fDb" id="Jgq-Xf-8or"/>
+                            <outlet property="delegate" destination="gvP-45-fDb" id="qU8-bK-gdf"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="VX3-VT-TtX">
+                        <nil key="title"/>
+                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="bsf-t9-7Dj">
+                            <rect key="frame" x="113" y="7" width="150" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="NEW GAME "/>
+                            <connections>
+                                <segue destination="TJU-ur-CFG" kind="show" id="hmR-q7-DRq"/>
+                            </connections>
+                        </button>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="226-eg-F5i" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6657" y="107"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="cU0-23-Cco">
+            <objects>
+                <viewController id="TJU-ur-CFG" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="SSm-gi-seX"/>
+                        <viewControllerLayoutGuide type="bottom" id="aaG-5G-hA9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="AXJ-0g-rpL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Jtc-hl-6DL">
+                                <frame key="frameInset" minX="63" minY="171" width="264" height="268"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <string key="text">Think you Know your Geography? Test it out with GeoQuiz. This Game allows you to choose a Country on the map and quiz yourself on its capital Cities. Click on any Country with a pin and you will be given several options , in which one will be the correct answer. For each correact answer you will get one point. You can always try multiple times. Good Luck!</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="RULES" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YWm-fn-BLg">
+                                <frame key="frameInset" minX="139" minY="66" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="textColor" red="0.40000000600000002" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vbI-xJ-G5s">
+                                <frame key="frameInset" minX="88" minY="519" width="214" height="58"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="TAKE THE GEO QUIZ">
+                                    <color key="titleColor" red="0.40000000600000002" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="6gJ-aL-jWI" kind="show" id="Qcc-dv-ZOs"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.29098588199999997" green="0.2063402966" blue="0.2003123352" alpha="0.54604559080000004" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f0Z-tg-OFO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4752.8000000000002" y="-770.46476761619192"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Y71-YL-g4D">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6gJ-aL-jWI" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="QaA-Qj-qYf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="jMc-Uq-B4T" kind="relationship" relationship="rootViewController" id="zHF-gT-jqN"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lf3-BS-cim" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4724" y="106.59670164917542"/>
+        </scene>
+    </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="zHF-gT-jqN"/>
+    </inferredMetricsTieBreakers>
+    <color key="tintColor" red="0.40000000600000002" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+</document>
